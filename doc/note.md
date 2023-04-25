@@ -4,8 +4,10 @@
 
 - @ques NvChad 怎么自定义设置
 
-- @ques nvim lua set directory
+- @ques nvim 从 terminal 回到原来的 window
 
 ## 2023-04-25 16:41:46
 
+- @ques toggle terminal
+- @ques nvim lua set directory
 - @ques VimBeGood
