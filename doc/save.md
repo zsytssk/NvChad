@@ -5,6 +5,8 @@ Vim cheatsheet: https://quickref.me/vim.html
 - @ques 如何 prettier
 - @ques 如何跳转 workspace
 - @ques 如何安装 typescript
+- @ques 如何跳转链接
+- @ques 如何refresh文件
 
 - nvchad
 

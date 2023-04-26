@@ -20,6 +20,3 @@ dofile(vim.g.base46_cache .. "defaults")
 vim.opt.rtp:prepend(lazypath)
 require "plugins"
 
--- zsytssk setting
-vim.api.nvim_command("cd ~/.config/nvim")
-vim.wo.relativenumber = true
