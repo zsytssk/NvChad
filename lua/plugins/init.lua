@@ -2,7 +2,6 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
 
-  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" }, },
   "nvim-lua/plenary.nvim",
 
   -- nvchad plugins

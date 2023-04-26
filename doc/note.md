@@ -1,3 +1,4 @@
+- @ques 如何能搜索custom中的file
 - @ques relative num ?
 
 - @ques cursor blink
