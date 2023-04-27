@@ -1,6 +1,8 @@
 Vim cheatsheet: https://quickref.me/vim.html
+
 ## 快捷键
 
+- 设置当前文件的文件夹为workspace `:cd %:p:h`
 - cheetsheet <leader>+c+h
 
 ## 2023-04-25 12:11:18
