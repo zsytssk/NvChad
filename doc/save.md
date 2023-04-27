@@ -1,4 +1,7 @@
 Vim cheatsheet: https://quickref.me/vim.html
+## 快捷键
+
+- cheetsheet <leader>+c+h
 
 ## 2023-04-25 12:11:18
 
@@ -34,4 +37,4 @@ Vim cheatsheet: https://quickref.me/vim.html
     - nvim prettier 配置
     - vscode 快速打开
     - ts 补全
-    - error
+    - err
