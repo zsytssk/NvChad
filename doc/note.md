@@ -1,5 +1,11 @@
 
 ## 2023-04-27 11:59:15
+- @ques 前端项目配置
+    - ts + prettier
+    - change case
+    - @ques 如何formatOnSave
+
+- @ques 如何切换tab 
 - @ques reveal in sidebar in vim
 - @ques 复制文件夹 + 粘贴
 - @ques 快速关闭window
