@@ -1,5 +1,7 @@
 
 ## 2023-04-27 11:59:15
+- @ques reveal in sidebar in vim
+- @ques 复制文件夹 + 粘贴
 - @ques 快速关闭window
 - @ques 感觉vim上的文件目录不好用，这样用户就会对目录结构缺少感知
 - @ques 手指的感觉记忆
