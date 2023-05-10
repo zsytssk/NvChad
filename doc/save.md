@@ -1,3 +1,4 @@
+https://github.com/wsdjeg/Learn-Vim_zh_cn
 Vim cheatsheet: https://quickref.me/vim.html
 
 ## 快捷键

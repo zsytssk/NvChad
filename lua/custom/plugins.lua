@@ -1,5 +1,10 @@
 local plugins = {
   { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" }, },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    cmd = { "TSContextEnable" },
+    lazy = false,
+  },
   { "dstein64/vim-startuptime", cmd = { "StartupTime" }, },
   {
     "neovim/nvim-lspconfig",
