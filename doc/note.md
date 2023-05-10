@@ -1,3 +1,5 @@
+打字练习: https://type-fu.com/app
+
 ## 2023-04-27 11:59:15
 
 - @ques 前端项目配置
@@ -7,14 +9,15 @@
   - change case
   - 如何插入时间
   - @ques quickfix
-    - https://neovimcraft.com/plugin/folke/trouble.nvim/index.html
     - https://neovimcraft.com/plugin/kevinhwang91/nvim-bqf/index.html
   - ***
+    - https://neovimcraft.com/plugin/folke/trouble.nvim/index.html
   - ts + prettier
   - 像 vscode 一样当前 function 挂在页面的最顶上
   - @ques 如何 formatOnSave
   - @ques nvchad 默认运行命令
-## 
+
+- @ques cmp 自动补全的效果
 
 更新 nvv11had
 

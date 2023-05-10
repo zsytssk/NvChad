@@ -1,11 +1,4 @@
 local plugins = {
-  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" }, },
-  {
-    "nvim-treesitter/nvim-treesitter-context",
-    cmd = { "TSContextEnable" },
-    lazy = false,
-  },
-  { "dstein64/vim-startuptime", cmd = { "StartupTime" }, },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -18,7 +11,39 @@ local plugins = {
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.lspconfig"
-    end
+    end,
+  },
+  --
+  { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
+  -- 在顶部显示当前的scope
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    cmd = { "TSContextEnable" },
+    lazy = false,
+  },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+  },
+  {
+    "f-person/git-blame.nvim",
+    event = "VeryLazy",
+  },
+  -- 展开收紧函数对象等
+  {
+    'Wansmer/treesj',
+    cmd = { "TSJToggle" },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('treesj').setup({})
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   }
 }
 return plugins
