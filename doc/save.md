@@ -1,11 +1,39 @@
 https://github.com/wsdjeg/Learn-Vim_zh_cn
 Vim cheatsheet: https://quickref.me/vim.html
+https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
+
+## 目标
+
+最快的纵向移动
+最快的横向移动
+代码块移动
+
+## 功能
+
+vertical move line
+https://www.youtube.com/watch?v=X5IAdaN6IwM
 
 ## 可能用的插件
+
+https://github.com/johmsalas/text-case.nvim
+
+NeoComposer.nvim
+https://github.com/Cassin01/wf.nvim/
+https://github.com/BooleanCube/keylab.nvim
+NeoMinimap
+telescope-tabs.nvim
+mrjones2014/legendary.nvim
+lua/plugins/noice.lua
+
+andymass/vim-matchup
+
+https://github.com/ThePrimeagen/harpoon
 
 https://github.com/kevinhwang91/nvim-bqf
 
 ## 快捷键
+
+- cursor 最近的位置 ctrl+o | Ctrl+i
 
 - 设置当前文件的文件夹为 workspace `:cd %:p:h`
 - cheetsheet <leader>+c+h

@@ -4,6 +4,8 @@
 
 - @ques 前端项目配置
 
+  - min-map
+  - workspace
   - 纵向移动行
   - @ques prettier format markdown
   - change case
@@ -18,8 +20,6 @@
   - @ques nvchad 默认运行命令
 
 - @ques cmp 自动补全的效果
-
-更新 nvv11had
 
 - @ques 如何切换 tab
 - @ques reveal in sidebar in vim
@@ -44,3 +44,12 @@
 - @ques 如何修改字符或者其他东西
 
 - @ques treesitter 的 tsx 文件高亮并不好
+- 更新 nvv11had
+
+```lua
+experimental = {
+        ghost_text = {
+            hl_group = false
+        },
+    },
+```

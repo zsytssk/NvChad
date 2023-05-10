@@ -48,7 +48,11 @@ local options = {
   completion = {
     completeopt = "menu,menuone",
   },
-
+  experimental = {
+    ghost_text = {
+      hl_group = false,
+    },
+  },
   window = {
     completion = {
       side_padding = (cmp_style ~= "atom" and cmp_style ~= "atom_colored") and 1 or 0,
