@@ -2,22 +2,36 @@ local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "tsserver" }
+local servers = { "html", "clangd" }
 
 for _, lsp in ipairs(servers) do
-  if lsp == 'tsserver' then
-    lspconfig[lsp].setup {
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
-      cmd = { "typescript-language-server", "--stdio" }
-    }
-    goto continue;
-  end
-
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
   }
-  ::continue::
 end
+
+lspconfig.cssls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "css-languageserver", "--stdio" },
+}
+
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+  commands = {
+    OrganizeImports = {
+      require("custom.utils").organize_imports,
+      description = "Organize Imports",
+    },
+  },
+}
+
+lspconfig.emmet_ls.setup {
+  -- on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "css", "html", "javascript", "less", "sass", "scss", "typescript", "typescriptreact", "typescript.tsx" },
+}

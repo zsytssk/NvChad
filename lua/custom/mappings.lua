@@ -13,19 +13,25 @@ M.general = {
     ["<leader>na"] = { "<cmd> Nvdash <CR>", "toggle nvdash" },
     ["<leader>u"] = { "<cmd> UndotreeToggle <CR>", "undo tree" },
     ["<leader>nu"] = { "<cmd> NvChadUpdate <CR>", "nvdash update" },
-    ["<leader>m"] = { "<cmd> TSJToggle  <CR>", "treesj toggle" },
+    ["<leader>m"] = { "<cmd> TSJToggle <CR>", "treesj toggle" },
     ["<leader>kl"] = { "<cmd> KeylabStart  <CR>", "KeylabStart" },
+    ["<leader>kw"] = { "<cmd> bufdo bd <CR>", "close all buffer" },
     ["<C-t>"] = { "<cmd> TroubleToggle  <CR>", "trouble toggle" },
-    -- ["<C-s>"] = { "<cmd> w  <CR>", "save file" },
-    ["<leader>tr"] = {
+    ["<A-z>"] = {
       function()
-        require("base46").toggle_transparency()
+        require("custom.utils").toggle_wrap()
       end,
-      "toggle transparency",
+      "save file",
     },
     ["<leader>pp"] = {
       "<cmd> Telescope workspaces <CR>", "find workspaces",
     },
+  },
+  v = {
+    -- save
+    ["J"] = { ":m '>+1<CR>gv=gv", "move lines down" },
+    ["K"] = { ":m '<-2<CR>gv=gv", "move lines up" },
+    ["<C-p>"] = { "y'>o<Esc>gp", "dulplicate lines downs" },
   },
 }
 

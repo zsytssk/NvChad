@@ -33,6 +33,9 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
+      matchup = {
+        enable = true,
+      },
       ensure_installed = { "html", "css", "javascript", "typescript", "tsx", "bash" },
     },
   },
@@ -45,12 +48,15 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter-context",
     cmd = { "TSContextEnable" },
-    lazy = false,
+    event = "VeryLazy",
   },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup()
+    end,
   },
   {
     "f-person/git-blame.nvim",
@@ -78,15 +84,22 @@ local plugins = {
     end,
   },
   {
-    "BooleanCube/keylab.nvim",
-    cmd = { "KeylabStart" },
-  },
-  {
-    "LukasPietzschmann/telescope-tabs",
-    requires = { "nvim-telescope/telescope.nvim" },
+    "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      require("telescope-tabs").setup {}
+      require "custom.notice"
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
+  {
+    "andymass/vim-matchup",
+    event = "VeryLazy",
+    config = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
     end,
   },
 }

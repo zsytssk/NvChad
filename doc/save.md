@@ -2,11 +2,20 @@ https://github.com/wsdjeg/Learn-Vim_zh_cn
 Vim cheatsheet: https://quickref.me/vim.html
 https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
 
+## 命令
+
+```lua
+-- clear mark
+:delmarks
+```
+
 ## 目标
 
 最快的纵向移动
 最快的横向移动
 代码块移动
+
+文件切换 + 代码切换 + 项目切换
 
 ## 功能
 
@@ -15,13 +24,9 @@ https://www.youtube.com/watch?v=X5IAdaN6IwM
 
 ## 可能用的插件
 
+https://www.youtube.com/watch?v=9IcXJvoPHCY&list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg&index=13
 https://github.com/johmsalas/text-case.nvim
-
 NeoComposer.nvim
-https://github.com/Cassin01/wf.nvim/
-https://github.com/BooleanCube/keylab.nvim
-NeoMinimap
-telescope-tabs.nvim
 mrjones2014/legendary.nvim
 lua/plugins/noice.lua
 

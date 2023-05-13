@@ -8,6 +8,7 @@ local sources = {
   formatting.stylua,
 
   null_ls.builtins.diagnostics.eslint,
+  null_ls.builtins.code_actions.eslint,
   lint.shellcheck,
 }
 
@@ -15,14 +16,26 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = true,
   sources = sources,
-  on_attach = function(client, bufnr)
+  on_attach = function(client, buffer)
+    vim.api.nvim_create_autocmd({ "FocusLost" }, {
+      buffer = buffer,
+      callback = function()
+        vim.defer_fn(function()
+          vim.api.nvim_buf_call(buffer, function()
+            -- vim.lsp.buf.format { bufnr = buffer }
+            vim.cmd "w" -- print "hello world"
+          end)
+        end, 100)
+      end,
+    })
+
     if client.supports_method "textDocument/formatting" then
-      vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+      vim.api.nvim_clear_autocmds { group = augroup, buffer = buffer }
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
-        buffer = bufnr,
+        buffer = buffer,
         callback = function()
-          vim.lsp.buf.format { bufnr = bufnr }
+          vim.lsp.buf.format { bufnr = buffer }
         end,
       })
     end
