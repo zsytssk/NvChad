@@ -1,3 +1,4 @@
+local Path = require "plenary.path"
 local sessions = require "sessions"
 local workspaces_utils = require "workspaces.util"
 local M = {}
@@ -25,43 +26,13 @@ M.get_current_cwd = function()
   return vim.fn.getcwd()
 end
 
-M.serialize_table = function(val, name, skipnewlines, depth)
-  skipnewlines = skipnewlines or false
-  depth = depth or 0
-
-  local tmp = string.rep(" ", depth)
-
-  if name then
-    tmp = tmp .. name .. " = "
-  end
-
-  if type(val) == "table" then
-    tmp = tmp .. "{" .. (not skipnewlines and "\n" or "")
-
-    for k, v in pairs(val) do
-      tmp = tmp .. M.serialize_table(v, k, skipnewlines, depth + 1) .. "," .. (not skipnewlines and "\n" or "")
-    end
-
-    tmp = tmp .. string.rep(" ", depth) .. "}"
-  elseif type(val) == "number" then
-    tmp = tmp .. tostring(val)
-  elseif type(val) == "string" then
-    tmp = tmp .. string.format("%q", val)
-  elseif type(val) == "boolean" then
-    tmp = tmp .. (val and "true" or "false")
-  else
-    tmp = tmp .. '"[inserializeable datatype:' .. type(val) .. ']"'
-  end
-
-  return tmp
-end
-
 M.get_cwd_workspaces_config = function()
   local workspaces = require "workspaces"
   local workspaces_config = workspaces.get()
-  local current_foler_name = workspaces_utils.path.basename(M.get_current_cwd())
+
   for _, v in pairs(workspaces_config) do
-    if v["name"] == current_foler_name then
+    print(Path.new(v.path):normalize())
+    if M.path_is_same(v.path, M.get_current_cwd() .. "/") then
       return v
     end
   end
@@ -105,6 +76,16 @@ M.has_session = function(name)
     end
   end
   return false
+end
+
+M.path_is_same = function(path1, path2)
+  if path1 == nil or path2 == nil then
+    return false
+  end
+  local p1 = Path.new(path1):absolute()
+  local p2 = Path.new(path2):absolute()
+
+  return p1 == p2
 end
 
 return M

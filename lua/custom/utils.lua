@@ -37,9 +37,9 @@ local function visual_selection_range()
 end
 
 M.get_select_region = function()
-  print "start123"
-  local a = visual_selection_range()
-  -- print(a)
+  local Path = require "plenary.path"
+  local a = Path:new(vim.fn.getcwd()):absolute()
+  print(a)
 end
 
 M.test = M.get_select_region

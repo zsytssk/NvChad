@@ -14,7 +14,12 @@ M.general = {
     ["<leader>u"] = { "<cmd> UndotreeToggle <CR>", "undo tree" },
     ["<leader>nu"] = { "<cmd> NvChadUpdate <CR>", "nvdash update" },
     ["<leader>m"] = { "<cmd> TSJToggle <CR>", "treesj toggle" },
-    ["<leader>kl"] = { "<cmd> KeylabStart  <CR>", "KeylabStart" },
+    ["<leader>kl"] = {
+      function()
+        require("close_buffers").wipe { type = "all", force = true }
+      end,
+      "close all buffers",
+    },
     ["<leader>kw"] = { "<cmd> bufdo bd <CR>", "close all buffer" },
     ["<leader>cf"] = { "<cmd> echo @% <CR>", "show current file name" },
     ["<A-z>"] = {
@@ -27,14 +32,14 @@ M.general = {
       "<cmd> Telescope workspaces <CR>",
       "find workspaces",
     },
-  },
-  v = {
     ["<A-t>"] = {
       function()
         require("custom.utils").test()
       end,
       "test",
     },
+  },
+  v = {
     -- save
     ["J"] = { ":m '>+1<CR>gv=gv", "move lines down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "move lines up" },
