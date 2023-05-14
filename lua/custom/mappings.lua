@@ -5,7 +5,7 @@ local M = {}
 M.general = {
   i = {
     -- save
-    ["<C-s>"] = { "<cmd> w  <CR>", "save file" },
+    ["<C-s>"] = { "<cmd> w <CR>", "save file" },
   },
   n = {
     -- save
@@ -21,7 +21,7 @@ M.general = {
       "close all buffers",
     },
     ["<leader>kw"] = { "<cmd> bufdo bd <CR>", "close all buffer" },
-    ["<leader>cf"] = { "<cmd> echo @% <CR>", "show current file name" },
+    ["<leader>cf"] = { "<cmd> echo expand('%:p') <CR>", "show current file name" },
     ["<A-z>"] = {
       function()
         require("custom.utils").toggle_wrap()
@@ -41,9 +41,10 @@ M.general = {
   },
   v = {
     -- save
+    ["<C-p>"] = { "yPgv", "copy lines down" },
+    ["<C-l>"] = { "ygv<esc>pgv", "copy lines up" },
     ["J"] = { ":m '>+1<CR>gv=gv", "move lines down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "move lines up" },
-    ["<C-p>"] = { "y'>o<Esc>gp", "dulplicate lines downs" },
   },
 }
 

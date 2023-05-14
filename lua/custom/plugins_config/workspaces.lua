@@ -5,8 +5,8 @@ local close_buffers = require "close_buffers"
 local utils = require "custom.plugins_config.utils"
 
 sessions.setup {
-  events = { "WinEnter" },
-  session_filepath = vim.fn.stdpath "data" .. "/sessions",
+  events = { "WinEnter", "VimLeavePre" },
+  session_filepath = utils.sessions_path,
   absolute = true,
 }
 
@@ -21,7 +21,7 @@ workspaces.setup {
 
       if utils.has_session(cur_config.name) then
         local session_filepath = utils.get_cwd_session_path()
-        sessions.load(session_filepath, { silent = true })
+        sessions.load(session_filepath, { autosave = true, silent = true })
       else
         utils.save_cur_session()
       end

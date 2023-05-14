@@ -1,14 +1,32 @@
 打字练习: https://type-fu.com/app
 打字练习: https://type-fu.com/app
 
+向上
+
 ## 2023-04-27 11:59:15
 
+- @ques 自增快捷键
+
 ```lua
+line1 = vim.api.nvim_buf_get_mark(0, "<")[1]
+line2 = vim.api.nvim_buf_get_mark(0, ">")[1]
+vim.fn.getpos('v')
 print(workspaces_utils.path.basename(get_current_cwd()))
+
 ```
 
+https://www.reddit.com/r/neovim/comments/oo97pq/how_to_get_the_visual_selection_range/
+
+https://github.com/natecraddock/sessions.nvim
 https://www.youtube.com/watch?v=1f7l2-Fap2s
 https://github.com/natecraddock/sessions.nvim
+https://www.youtube.com/watch?v=1f7l2-Fap2s
+https://github.com/natecraddock/sessions.nvim
+https://www.youtube.com/watch?v=1f7l2-Fap2s
+https://github.com/natecraddock/sessions.nvim
+https://www.youtube.com/watch?v=1f7l2-Fap2s
+https://github.com/natecraddock/sessions.nvim
+https://www.youtube.com/watch?v=1f7l2-Fap2s
 
 - vim 的缺点，没有高级编辑器的功能 甚至是 api，历史包袱太重了
 

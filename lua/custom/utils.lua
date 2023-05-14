@@ -26,22 +26,28 @@ M.organize_imports = function(buffer)
   vim.lsp.buf_request_sync(buffer, "workspace/executeCommand", params, 500)
 end
 
-local function visual_selection_range()
-  local _, csrow, cscol, _ = unpack(vim.fn.getpos "'<")
-  local _, cerow, cecol, _ = unpack(vim.fn.getpos "'>")
-  if csrow < cerow or (csrow == cerow and cscol <= cecol) then
-    return csrow - 1, cscol - 1, cerow - 1, cecol
-  else
-    return cerow - 1, cecol - 1, csrow - 1, cscol
-  end
-end
-
+-- local function visual_selection_range()
+--   local _, csrow, cscol, _ = unpack(vim.fn.getpos "'<")
+--   local _, cerow, cecol, _ = unpack(vim.fn.getpos "'>")
+--   if csrow < cerow or (csrow == cerow and cscol <= cecol) then
+--     return csrow - 1, cscol - 1, cerow - 1, cecol
+--   else
+--     return cerow - 1, cecol - 1, csrow - 1, cscol
+--   end
+-- end
+--
+-- M.get_select_region = function()
+--   local line1 = vim.api.nvim_buf_get_mark(0, "<")
+--   local line2 = vim.api.nvim_buf_get_mark(0, ">")
+--   local line3 = vim.fn.getpos "v"
+--   print("test1" .. vim.inspect(line1))
+--   print("test2" .. vim.inspect(line2))
+-- end
 M.get_select_region = function()
-  local Path = require "plenary.path"
-  local a = Path:new(vim.fn.getcwd()):absolute()
-  print(a)
-end
+  vim.cmd 'noau normal! "vy"'
 
+  print(vim.inspect(vim.fn.getreg "v"))
+end
 M.test = M.get_select_region
 
 return M

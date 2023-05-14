@@ -5,16 +5,10 @@ https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
 ## 命令
 
 ```lua
+:%s/search/replace/g
 -- clear mark
 :delmarks
-```
-
-```vim
-:%s/search/replace/g
-```
-
-```ts
-var a = 1;
+:messages
 ```
 
 ## 目标

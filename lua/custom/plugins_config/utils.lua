@@ -3,7 +3,7 @@ local sessions = require "sessions"
 local workspaces_utils = require "workspaces.util"
 local M = {}
 
-local sessions_path = vim.fn.stdpath "data" .. "/sessions"
+M.sessions_path = vim.fn.stdpath "data" .. "/sessions"
 
 M.scan_dir = function(directory)
   local i, t, popen = 0, {}, io.popen
@@ -41,7 +41,7 @@ end
 M.get_cwd_session_path = function()
   local cur_config = M.get_cwd_workspaces_config()
   if cur_config then
-    return sessions_path .. "/" .. cur_config.name .. ".session"
+    return M.sessions_path .. "/" .. cur_config.name .. ".session"
   end
 end
 

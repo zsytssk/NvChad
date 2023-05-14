@@ -4,5 +4,6 @@ vim.opt.list = true
 vim.opt.listchars = { space = "⋅", tab = "--" }
 
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+vim.cmd "autocmd VimResized * wincmd ="
 vim.cmd "set cmdheight=0"
 vim.opt.swapfile = false
