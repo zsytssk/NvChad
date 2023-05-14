@@ -20,10 +20,9 @@ null_ls.setup {
     vim.api.nvim_create_autocmd({ "FocusLost" }, {
       buffer = buffer,
       callback = function()
-        vim.defer_fn(function()
+        vim.schedule(function()
           vim.api.nvim_buf_call(buffer, function()
-            -- vim.lsp.buf.format { bufnr = buffer }
-            vim.cmd "w" -- print "hello world"
+            vim.cmd "w"
           end)
         end, 100)
       end,

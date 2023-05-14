@@ -16,7 +16,7 @@ M.general = {
     ["<leader>m"] = { "<cmd> TSJToggle <CR>", "treesj toggle" },
     ["<leader>kl"] = { "<cmd> KeylabStart  <CR>", "KeylabStart" },
     ["<leader>kw"] = { "<cmd> bufdo bd <CR>", "close all buffer" },
-    ["<C-t>"] = { "<cmd> TroubleToggle  <CR>", "trouble toggle" },
+    ["<leader>cf"] = { "<cmd> echo @% <CR>", "show current file name" },
     ["<A-z>"] = {
       function()
         require("custom.utils").toggle_wrap()
@@ -24,10 +24,17 @@ M.general = {
       "save file",
     },
     ["<leader>pp"] = {
-      "<cmd> Telescope workspaces <CR>", "find workspaces",
+      "<cmd> Telescope workspaces <CR>",
+      "find workspaces",
     },
   },
   v = {
+    ["<A-t>"] = {
+      function()
+        require("custom.utils").test()
+      end,
+      "test",
+    },
     -- save
     ["J"] = { ":m '>+1<CR>gv=gv", "move lines down" },
     ["K"] = { ":m '<-2<CR>gv=gv", "move lines up" },

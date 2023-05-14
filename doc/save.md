@@ -9,7 +9,18 @@ https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
 :delmarks
 ```
 
+```vim
+:%s/search/replace/g
+```
+
+```ts
+var a = 1;
+```
+
 ## 目标
+
+- 文件切换 window.manager
+- 文件内跳转选择 better_scope
 
 最快的纵向移动
 最快的横向移动

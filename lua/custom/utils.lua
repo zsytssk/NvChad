@@ -26,4 +26,22 @@ M.organize_imports = function(buffer)
   vim.lsp.buf_request_sync(buffer, "workspace/executeCommand", params, 500)
 end
 
+local function visual_selection_range()
+  local _, csrow, cscol, _ = unpack(vim.fn.getpos "'<")
+  local _, cerow, cecol, _ = unpack(vim.fn.getpos "'>")
+  if csrow < cerow or (csrow == cerow and cscol <= cecol) then
+    return csrow - 1, cscol - 1, cerow - 1, cecol
+  else
+    return cerow - 1, cecol - 1, csrow - 1, cscol
+  end
+end
+
+M.get_select_region = function()
+  print "start123"
+  local a = visual_selection_range()
+  -- print(a)
+end
+
+M.test = M.get_select_region
+
 return M

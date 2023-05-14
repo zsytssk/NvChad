@@ -6,13 +6,13 @@ local plugins = {
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
       config = function()
-        require "custom.null-ls"
+        require "custom.plugins_config.null-ls"
       end,
     },
 
     config = function()
       require "plugins.configs.lspconfig"
-      require "custom.lspconfig"
+      require "custom.plugins_config.lspconfig"
     end,
   },
   {
@@ -36,7 +36,7 @@ local plugins = {
       matchup = {
         enable = true,
       },
-      ensure_installed = { "html", "css", "javascript", "typescript", "tsx", "bash" },
+      ensure_installed = { "markdown", "html", "css", "javascript", "typescript", "tsx", "bash" },
     },
   },
   --- override default plugins setting - end
@@ -58,6 +58,7 @@ local plugins = {
       require("nvim-surround").setup()
     end,
   },
+  { "kazhala/close-buffers.nvim" },
   {
     "f-person/git-blame.nvim",
     event = "VeryLazy",
@@ -79,15 +80,17 @@ local plugins = {
   {
     "natecraddock/workspaces.nvim",
     cmd = { "WorkspacesAdd", "WorkspacesRemove" },
+    dependencies = { "natecraddock/sessions.nvim" },
+    event = "VeryLazy",
     config = function()
-      require("workspaces").setup {}
+      require "custom.plugins_config.workspaces"
     end,
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
-      require "custom.notice"
+      require "custom.plugins_config.notice"
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
