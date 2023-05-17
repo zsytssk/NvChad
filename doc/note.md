@@ -2,10 +2,31 @@
 打字练习: https://type-fu.com/app
 
 向上
+conflict-markers.vim
 
 ## 2023-04-27 11:59:15
 
+- @todo 自动保存优化
+
+  - 更好的事件监听 只监听 active buffer 离开
+  - 只保存真正改变的文件
+
+```
+https://www.reddit.com/r/neovim/comments/s0i40v/how_do_i_detect_and_close_if_a_buffer_has_not_had/
+https://vi.stackexchange.com/questions/25746/vimscript-how-to-check-if-a-buffer-is-modified
+:h getbufinfo
+vim.api.nvim_echo
+```
+
 - @ques 自增快捷键
+
+```lua
+vim.diagnostic.setqflist、vim.diagnostic.setloclist
+vim.lsp.buf.references()
+vim.lsp.buf.document_symbol()
+vim.lsp.buf.outgoing_calls()
+vim.lsp.buf.incoming_calls()
+```
 
 ```lua
 line1 = vim.api.nvim_buf_get_mark(0, "<")[1]
@@ -19,23 +40,41 @@ https://www.reddit.com/r/neovim/comments/oo97pq/how_to_get_the_visual_selection_
 
 https://github.com/natecraddock/sessions.nvim
 https://www.youtube.com/watch?v=1f7l2-Fap2s
-https://github.com/natecraddock/sessions.nvim
-https://www.youtube.com/watch?v=1f7l2-Fap2s
-https://github.com/natecraddock/sessions.nvim
-https://www.youtube.com/watch?v=1f7l2-Fap2s
-https://github.com/natecraddock/sessions.nvim
-https://www.youtube.com/watch?v=1f7l2-Fap2s
-https://github.com/natecraddock/sessions.nvim
-https://www.youtube.com/watch?v=1f7l2-Fap2s
 
 - vim 的缺点，没有高级编辑器的功能 甚至是 api，历史包袱太重了
 
+  - 全局替换
+  - vscode 快速的打开项目+文件
+  - dot repeat
+  - tab 能不能和窗口相关
+  - telescope buildIn 功能
+  - refrence telescope
+  - alac 新建窗口，合并窗口到一个 app 下
+  - Zellij
+  - zsh 配置框架我推荐 zimfw，prompt 用 powerlevel10k。速度快且配置超简单。我已经用了好多年了。
+  - fzf + tmux
+    - https://github.com/sainnhe/tmux-fzf
+    - https://dev.to/waylonwalker/jump-to-running-tmux-sessions-with-fzf-4p77
+    - https://elijahmanor.com/blog/fd-fzf-tmux-nvim
+    - c-f 查找打开
+    - enter tmux but not create -> `tmux attach || tmux new`
+  - https://github.com/bsdelf/bufferhint
+  - keymap only for harpoon
+  - fzf folder
+  - 要不要用 c-enter 代替 O
+  - 删除 tag 不删除内部内容
+  - 文件历史
+  - 单词检查
+  - close tab but not close buffer
+  - message 的位置
+  - 重新打开当前文件
+  - react snippets
+  - nvim-tree 折叠其他文件架
+  - dropFile to nvim-tree
   - 块注释
-
-- @ques 前端项目配置
-
-  - workspace session manager
-
+  - 在侧边窗口打开 reference
+  - 引入函数会自动加上调用
+  - close file path open
   - telescope code action
   - Telescope code_actions - 向下复制
   - diff git
@@ -67,6 +106,8 @@ https://www.youtube.com/watch?v=1f7l2-Fap2s
   - change case
   - 如何插入时间
   - ***
+  - tmux split window ...
+  - workspace session manager
   - sign
   - macro
   - code action sort import

@@ -5,20 +5,35 @@ https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
 ## 命令
 
 ```lua
-:%s/search/replace/g
--- clear mark
-:delmarks
-:messages
+local ts_utils = require("nvim-treesitter.ts_utils")
+ts-utils.get_node_at_cursor()
+vim.api.nvim_list_wins()
+vim.api.nvim_tabpage_list_wins(0)
+```
+
+- 全局搜索替换
+
+```text
+You need a set of items that are the things you wish to replace. vimgrep, FzF, or Telescope can all do this.
+You pipe them to a quickfix list. For telescope its C-q, I think its A-tab in FzF (i don't use), and vimgrep goes directly to QF list
+Use cdo. cdo can even do confirm.
+
+---
+
+https://github.com/nvim-pack/nvim-spectrn
+nvim-pack/nvim-spectre
 ```
 
 ## 目标
 
+- 所有的功能都是渐入式的，不需要先置操作，等到我需要的时候他就在那里了
+
 - 文件切换 window.manager
 - 文件内跳转选择 better_scope
 
-最快的纵向移动
-最快的横向移动
-代码块移动
+- 最快的纵向移动 -> ?
+- 最快的横向移动 -> ?
+- 代码块移动 -?
 
 文件切换 + 代码切换 + 项目切换
 
@@ -29,17 +44,13 @@ https://www.youtube.com/watch?v=X5IAdaN6IwM
 
 ## 可能用的插件
 
+conflict-markers.vi
 https://www.youtube.com/watch?v=9IcXJvoPHCY&list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg&index=13
 https://github.com/johmsalas/text-case.nvim
 NeoComposer.nvim
 mrjones2014/legendary.nvim
-lua/plugins/noice.lua
-
-andymass/vim-matchup
 
 https://github.com/ThePrimeagen/harpoon
-
-https://github.com/kevinhwang91/nvim-bqf
 
 ## 快捷键
 
@@ -83,3 +94,9 @@ https://github.com/kevinhwang91/nvim-bqf
     - vscode 快速打开
     - ts 补全
     - err
+
+## end
+
+lua/plugins/noice.lua
+andymass/vim-matchup
+https://github.com/kevinhwang91/nvim-bqf

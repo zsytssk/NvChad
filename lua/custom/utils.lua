@@ -45,9 +45,33 @@ end
 -- end
 M.get_select_region = function()
   vim.cmd 'noau normal! "vy"'
-
-  print(vim.inspect(vim.fn.getreg "v"))
+  local buffer_list = vim.fn.getbufinfo()
+  for _, v in pairs(buffer_list) do
+    print(vim.inspect(v))
+    break
+  end
+  -- print(vim.inspect(vim.fn.getreg "v"))
 end
 M.test = M.get_select_region
+
+M.get_buffer_info = function(buffer)
+  local info
+  local list = vim.fn.getbufinfo(buffer)
+  for _, v in pairs(list) do
+    if v.bufnr == buffer then
+      info = v
+      break
+    end
+  end
+  return info
+end
+
+M.is_buffer_changed = function(buffer)
+  local info = M.get_buffer_info(buffer)
+  if info == nil or info.changed == 0 then
+    return false
+  end
+  return true
+end
 
 return M

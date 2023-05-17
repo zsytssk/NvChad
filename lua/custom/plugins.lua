@@ -41,8 +41,8 @@ local plugins = {
   },
   --- override default plugins setting - end
 
-  { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
   { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
+  { "christoomey/vim-tmux-navigator", lazy = false },
   { "mbbill/undotree", cmd = { "UndotreeToggle" } },
   -- 在顶部显示当前的scope
   {
@@ -73,11 +73,6 @@ local plugins = {
     end,
   },
   {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle" },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-  },
-  {
     "natecraddock/workspaces.nvim",
     cmd = { "WorkspacesAdd", "WorkspacesRemove" },
     dependencies = { "natecraddock/sessions.nvim" },
@@ -101,9 +96,14 @@ local plugins = {
   {
     "andymass/vim-matchup",
     event = "VeryLazy",
-    config = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    event = "VeryLazy",
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
   },
 }
 return plugins

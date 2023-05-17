@@ -1,4 +1,5 @@
 local null_ls = require "null-ls"
+local utils = require "custom.utils"
 
 local formatting = null_ls.builtins.formatting
 local lint = null_ls.builtins.diagnostics
@@ -17,9 +18,15 @@ null_ls.setup {
   debug = true,
   sources = sources,
   on_attach = function(client, buffer)
+    -- vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
     vim.api.nvim_create_autocmd({ "FocusLost" }, {
       buffer = buffer,
       callback = function()
+        local buffer_changed = utils.is_buffer_changed(buffer)
+        if not buffer_changed then
+          return
+        end
+
         vim.schedule(function()
           vim.api.nvim_buf_call(buffer, function()
             vim.cmd "w"

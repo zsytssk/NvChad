@@ -1,6 +1,5 @@
 local Path = require "plenary.path"
 local sessions = require "sessions"
-local workspaces_utils = require "workspaces.util"
 local M = {}
 
 M.sessions_path = vim.fn.stdpath "data" .. "/sessions"
@@ -31,7 +30,6 @@ M.get_cwd_workspaces_config = function()
   local workspaces_config = workspaces.get()
 
   for _, v in pairs(workspaces_config) do
-    print(Path.new(v.path):normalize())
     if M.path_is_same(v.path, M.get_current_cwd() .. "/") then
       return v
     end

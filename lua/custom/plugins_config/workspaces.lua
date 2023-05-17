@@ -29,10 +29,11 @@ workspaces.setup {
     end,
   },
 }
-
-vim.schedule(function()
-  local cur_config = utils.get_cwd_workspaces_config()
-  if cur_config then
-    workspaces.open(cur_config.name)
-  end
-end)
+vim.defer_fn(function()
+  vim.schedule(function()
+    local cur_config = utils.get_cwd_workspaces_config()
+    if cur_config then
+      workspaces.open(cur_config.name)
+    end
+  end)
+end, 500)
