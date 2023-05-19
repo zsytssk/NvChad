@@ -12,20 +12,19 @@ M.general = {
     ["<C-u>"] = { "<C-u>zz", "move up" },
     ["n"] = { "nzzzv", "find down" },
     ["N"] = { "Nzzzv", "find up" },
-    ["<leader>hh"] = {
-      function()
-        require("harpoon.ui").toggle_quick_menu()
-      end,
-      "open vim_be_good",
-    },
-    ["<leader>ha"] = {
-      function()
-        require("harpoon.mark").add_file()
-      end,
-      "open vim_be_good",
-    },
-
+    ["<leader>hh"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "harpoon open" },
+    ["<leader>ha"] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "harpoon add file" },
+    ["<leader>h1"] = { "<cmd>lua require('harpoon.ui').nav_file(1)<CR>", "harpoon nav_file 1" },
+    ["<leader>h2"] = { "<cmd>lua require('harpoon.ui').nav_file(2)<CR>", "harpoon nav_file 2" },
+    ["<leader>h3"] = { "<cmd>lua require('harpoon.ui').nav_file(3)<CR>", "harpoon nav_file 3" },
+    ["<leader>h4"] = { "<cmd>lua require('harpoon.ui').nav_file(4)<CR>", "harpoon nav_file 4" },
     -- save
+    ["<leader>fs"] = {
+      function()
+        require("telescope.builtin").resume()
+      end,
+      "telescope last search",
+    },
     ["z="] = {
       function()
         require("telescope.builtin").spell_suggest(require("telescope.themes").get_cursor {})
@@ -52,7 +51,6 @@ M.general = {
       end,
       "close all buffers",
     },
-    ["<leader>kw"] = { "<cmd> bufdo bd <CR>", "close all buffer" },
     ["<leader>cf"] = { "<cmd> echo expand('%:p') <CR>", "show current file name" },
     ["<A-z>"] = {
       function()
@@ -62,17 +60,6 @@ M.general = {
     },
     ["<leader>pp"] = {
       "<cmd> Telescope workspaces <CR>",
-      "find workspaces",
-    },
-    ["<leader>w"] = {
-      function()
-        local picker = require "window-picker"
-        local picked_window_id = picker.pick_window {
-          include_current_win = true,
-          selection_chars = "12345",
-        }
-        vim.api.nvim_set_current_win(picked_window_id)
-      end,
       "find workspaces",
     },
     ["<A-t>"] = {

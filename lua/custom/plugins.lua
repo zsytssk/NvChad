@@ -37,13 +37,28 @@ local plugins = {
         enable = true,
       },
       ensure_installed = { "markdown", "html", "css", "javascript", "typescript", "tsx", "bash" },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false,
+      },
     },
+  },
+  {
+    'numToStr/Comment.nvim',
+    config = function()
+      require("Comment").setup({
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
+    end,
+  },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring",
   },
   --- override default plugins setting - end
 
-  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
+  { "ThePrimeagen/vim-be-good",       cmd = { "VimBeGood" } },
   { "christoomey/vim-tmux-navigator", lazy = false },
-  { "mbbill/undotree", cmd = { "UndotreeToggle" } },
+  { "mbbill/undotree",                cmd = { "UndotreeToggle" } },
   -- 在顶部显示当前的scope
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -92,7 +107,7 @@ local plugins = {
       "rcarriga/nvim-notify",
     },
   },
-  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
+  { "kevinhwang91/nvim-bqf",     event = "VeryLazy" },
   {
     "andymass/vim-matchup",
     event = "VeryLazy",

@@ -36,13 +36,20 @@ print(workspaces_utils.path.basename(get_current_cwd()))
 
 ```
 
-https://www.reddit.com/r/neovim/comments/oo97pq/how_to_get_the_visual_selection_range/
+httpt://www.reddit.com/r/neovim/comments/oo97pq/how_to_get_the_visual_selection_range/
 
 https://github.com/natecraddock/sessions.nvim
 https://www.youtube.com/watch?v=1f7l2-Fap2s
 
 - vim 的缺点，没有高级编辑器的功能 甚至是 api，历史包袱太重了
 
+  - shortcut open terminal
+  - react snippets -> 可能要自己写
+  - harpoon -> c-a
+  - 我需要一个脚本来执行所有的拉取所有的配置文件然后放到一个仓库中
+  - bindKey for c-number
+  - mac alac 在任务栏有多个
+  - find in current folder
   - 全局替换
   - vscode 快速的打开项目+文件
   - dot repeat

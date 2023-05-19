@@ -71,3 +71,4 @@ nvim-tree: `:h nvim-tree-mappings-default`
 ## cheetsheet
 
 https://tmuxcheatsheet.com/
+ASCII Table: https://cloud.magiclen.org/us/ascii
