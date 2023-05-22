@@ -16,21 +16,6 @@ local plugins = {
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    config = function(_, opts)
-      -- 覆盖默认设置 start
-      dofile(vim.g.base46_cache .. "telescope")
-      local telescope = require "telescope"
-      telescope.setup(opts)
-      for _, ext in ipairs(opts.extensions_list) do
-        telescope.load_extension(ext)
-      end
-      -- 覆盖默认设置 end
-
-      telescope.load_extension "workspaces"
-    end,
-  },
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       matchup = {
@@ -44,21 +29,21 @@ local plugins = {
     },
   },
   {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
-      require("Comment").setup({
-        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-      })
+      require("Comment").setup {
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
     end,
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   --- override default plugins setting - end
-
-  { "ThePrimeagen/vim-be-good",       cmd = { "VimBeGood" } },
+  { "ThePrimeagen/harpoon", event = "VeryLazy" },
+  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
   { "christoomey/vim-tmux-navigator", lazy = false },
-  { "mbbill/undotree",                cmd = { "UndotreeToggle" } },
+  { "mbbill/undotree", cmd = { "UndotreeToggle" } },
   -- 在顶部显示当前的scope
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -94,6 +79,7 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require "custom.plugins_config.workspaces"
+      require("telescope").load_extension "workspaces"
     end,
   },
   {
@@ -107,18 +93,22 @@ local plugins = {
       "rcarriga/nvim-notify",
     },
   },
-  { "kevinhwang91/nvim-bqf",     event = "VeryLazy" },
+  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
   {
     "andymass/vim-matchup",
     event = "VeryLazy",
   },
   {
-    "ThePrimeagen/harpoon",
+    "nvim-pack/nvim-spectre",
     event = "VeryLazy",
   },
   {
-    "nvim-pack/nvim-spectre",
-    event = "VeryLazy",
+    "johmsalas/text-case.nvim",
+    cmd = { "TextCaseOpenTelescope" },
+    config = function()
+      require("textcase").setup {}
+      require("telescope").load_extension "textcase"
+    end,
   },
 }
 return plugins

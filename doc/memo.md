@@ -1,4 +1,9 @@
-vim events: `:h autocmd-events`
+## cheetsheet
+
+https://tmuxcheatsheet.com/
+ASCII Table: https://cloud.magiclen.org/us/asciivim
+
+events: `:h autocmd-events`
 nvim-tree: `:h nvim-tree-mappings-default`
 
 ## 命令
@@ -67,8 +72,3 @@ nvim-tree: `:h nvim-tree-mappings-default`
   vim_options = <function 51>
 }
 ```
-
-## cheetsheet
-
-https://tmuxcheatsheet.com/
-ASCII Table: https://cloud.magiclen.org/us/ascii

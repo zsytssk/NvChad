@@ -39,6 +39,7 @@ M.general = {
     },
     ["<leader>S"] = { "<cmd>lua require('spectre').open()<CR>", "global find replace" },
     ["<leader>gg"] = { "<cmd> VimBeGood <CR>", "open vim_be_good" },
+    ["<leader>tc"] = { "<cmd> TextCaseOpenTelescope <CR>", "textcase open" },
     ["<leader>na"] = { "<cmd> Nvdash <CR>", "toggle nvdash" },
     ["<leader>u"] = { "<cmd> UndotreeToggle <CR>", "undo tree" },
     ["<leader>nu"] = { "<cmd> NvChadUpdate <CR>", "nvdash update" },
@@ -71,7 +72,7 @@ M.general = {
   },
   v = {
     -- save
-    ["<A-p>"] = { "yPgv", "copy lines down", opts = { silent = true } },
+    ["<A-p>"] = { "yP<esc>gv", "copy lines down", opts = { silent = true } },
     ["<A-S-P>"] = { "ygv<esc>pgv", "copy lines up", opts = { silent = true } },
     ["J"] = { ":m '>+1<CR>gv=gv", "move lines down", opts = { silent = true } },
     ["K"] = { ":m '<-2<CR>gv=gv", "move lines up", opts = { silent = true } },

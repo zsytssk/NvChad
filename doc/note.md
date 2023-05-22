@@ -43,6 +43,7 @@ https://www.youtube.com/watch?v=1f7l2-Fap2s
 
 - vim 的缺点，没有高级编辑器的功能 甚至是 api，历史包袱太重了
 
+  - statusline show cur file path
   - shortcut open terminal
   - react snippets -> 可能要自己写
   - harpoon -> c-a
