@@ -40,6 +40,7 @@ local plugins = {
     "JoosepAlviste/nvim-ts-context-commentstring",
   },
   --- override default plugins setting - end
+  { "uga-rosa/utf8.nvim" },
   { "ThePrimeagen/harpoon", event = "VeryLazy" },
   { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
   { "christoomey/vim-tmux-navigator", lazy = false },
@@ -101,6 +102,19 @@ local plugins = {
   {
     "nvim-pack/nvim-spectre",
     event = "VeryLazy",
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    event = "VeryLazy",
+    version = "*",
+    config = function()
+      require("barbecue").setup {}
+    end,
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
   },
   {
     "johmsalas/text-case.nvim",

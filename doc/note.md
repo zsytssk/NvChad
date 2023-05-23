@@ -1,15 +1,22 @@
 打字练习: https://type-fu.com/app
 打字练习: https://type-fu.com/app
 
-向上
-conflict-markers.vim
+conflicttest-markers.vim
+
+## 2023-05-23 17:55:15
+
+2023-05-23 17:55:15
+鼠标在行尾部怎么处理
 
 ## 2023-04-27 11:59:15
 
 - @todo 自动保存优化
 
-  - 更好的事件监听 只监听 active buffer 离开
+  - 更好 的事件监听 只监听 active buffer 离开
   - 只保存真正改变的文件
+
+- @ques changePos 能不能直接传数字进去
+  - curpos() + 5 这种
 
 ```
 https://www.reddit.com/r/neovim/comments/s0i40v/how_do_i_detect_and_close_if_a_buffer_has_not_had/
@@ -18,31 +25,45 @@ https://vi.stackexchange.com/questions/25746/vimscript-how-to-check-if-a-buffer-
 vim.api.nvim_echo
 ```
 
+我是你爸爸
+
 - @ques 自增快捷键
 
 ```lua
-vim.diagnostic.setqflist、vim.diagnostic.setloclist
+vim.diagnost��ic.setqflist、vim.diagnostic.setloclist
 vim.lsp.buf.references()
 vim.lsp.buf.document_symbol()
 vim.lsp.buf.outgoing_calls()
 vim.lsp.buf.incoming_calls()
+bufnr()
+getbufline
 ```
 
 ```lua
 line1 = vim.api.nvim_buf_get_mark(0, "<")[1]
-line2 = vim.api.nvim_buf_get_mark(0, ">")[1]
+line2 = vim.api.nvim_buf_get_markvim.api.nvim_buf_get_mark(0, ">")[1]
 vim.fn.getpos('v')
-print(workspaces_utils.path.basename(get_current_cwd()))
-
+rint(workspaces_utils.path.basenavim.api.nvim_buf_get_markme(get_current_cwd()))
+vim.fn.col
+local row,vim.fn.colvim.fn.colvimvim.api.nvim_buf_get_mark.fn.colvim.fn.colvim.fn.colvim.fn.colvim.fn.col col = unpack(vim.api.nvim_win_get_cursor(0))
 ```
 
-httpt://www.reddit.com/r/neovim/comments/oo97pq/how_to_get_the_visual_selection_range/
+httpt://www.reddit.com/r/neovim/cvim.api.nvim_buf_get_markomments/oo97pq/how_to_get_the_visual_selection_range/
 
 https://github.com/natecraddock/sessions.nvim
 https://www.youtube.com/watch?v=1f7l2-Fap2s
 
 - vim 的缺点，没有高级编辑器的功能 甚至是 api，历史包袱太重了
 
+  - 感觉还是需要一个 session manager
+  - show line and col in statusline
+  - git
+    - diff branch
+    - resolve conflict
+    - view stage
+    - ***
+    - diffview.nvim -> https://www.reddit.com/r/neovim/comments/xd57hd/diffviewnvim_vs_fugitive/
+    - vgit
   - statusline show cur file path
   - shortcut open terminal
   - react snippets -> 可能要自己写

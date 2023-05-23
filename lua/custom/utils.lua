@@ -26,52 +26,29 @@ M.organize_imports = function(buffer)
   vim.lsp.buf_request_sync(buffer, "workspace/executeCommand", params, 500)
 end
 
--- local function visual_selection_range()
---   local _, csrow, cscol, _ = unpack(vim.fn.getpos "'<")
---   local _, cerow, cecol, _ = unpack(vim.fn.getpos "'>")
---   if csrow < cerow or (csrow == cerow and cscol <= cecol) then
---     return csrow - 1, cscol - 1, cerow - 1, cecol
---   else
---     return cerow - 1, cecol - 1, csrow - 1, cscol
---   end
--- end
---
--- M.get_select_region = function()
---   local line1 = vim.api.nvim_buf_get_mark(0, "<")
---   local line2 = vim.api.nvim_buf_get_mark(0, ">")
---   local line3 = vim.fn.getpos "v"
---   print("test1" .. vim.inspect(line1))
---   print("test2" .. vim.inspect(line2))
--- end
-M.get_select_region = function()
-  vim.cmd 'noau normal! "vy"'
-  local buffer_list = vim.fn.getbufinfo()
-  for _, v in pairs(buffer_list) do
-    print(vim.inspect(v))
-    break
-  end
-  -- print(vim.inspect(vim.fn.getreg "v"))
-end
-M.test = M.get_select_region
-
-M.get_buffer_info = function(buffer)
-  local info
-  local list = vim.fn.getbufinfo(buffer)
-  for _, v in pairs(list) do
-    if v.bufnr == buffer then
-      info = v
-      break
-    end
-  end
-  return info
+M.insert_cur_time = function()
+  local mode = vim.fn.mode()
+  local text = vim.fn.strftime "%Y-%m-%d %H:%M:%S"
+  vim.api.nvim_put({ text }, "c", mode == "n", true)
 end
 
-M.is_buffer_changed = function(buffer)
-  local info = M.get_buffer_info(buffer)
-  if info == nil or info.changed == 0 then
-    return false
-  end
-  return true
+M.test = function()
+  local buffer = vim.api.nvim_get_current_buf()
+  local tool_sel = require "custom.tools.selection"
+
+  local selection = tool_sel.get_select_region()
+  local text = tool_sel.get_select_text(buffer, selection)
+  local start_index = tool_sel.pos_to_index(buffer, selection[1])
+  local end_index = tool_sel.pos_to_index(buffer, selection[2])
+  local new_start_index = end_index + 1
+  local new_end_index = new_start_index + end_index - start_index
+  vim.api.nvim_put(text, "c", true, true)
+  local new_start_pos = tool_sel.index_to_pos(buffer, new_start_index)
+  local new_end_pos = tool_sel.index_to_pos(buffer, new_end_index)
+  tool_sel.set_selection(new_start_pos, new_end_pos)
+  print(vim.inspect { text, selection, new_end_pos })
+  print(vim.inspect(selection))
+  -- print(vim.inspect { start_pos, end_pos })
 end
 
 return M

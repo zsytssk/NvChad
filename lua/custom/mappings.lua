@@ -1,13 +1,24 @@
 -- n, v, i, t = mode names
-
 local M = {}
 
 M.general = {
   i = {
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "save file" },
+    ["<A-S-i>"] = {
+      function()
+        require("custom.utils").insert_cur_time()
+      end,
+      "insert time",
+    },
   },
   n = {
+    ["<A-S-i>"] = {
+      function()
+        require("custom.utils").insert_cur_time()
+      end,
+      "insert time",
+    },
     ["<C-d>"] = { "<C-d>zz", "move down" },
     ["<C-u>"] = { "<C-u>zz", "move up" },
     ["n"] = { "nzzzv", "find down" },
@@ -46,7 +57,7 @@ M.general = {
     ["<leader>m"] = { "<cmd> TSJToggle <CR>", "treesj toggle" },
     ["<leader>ol"] = { "<cmd> AerialToggle <CR>", "Toggle outline" },
     ["<leader>og"] = { "<cmd> OrganizeImports <CR>", "organize imports" },
-    ["<leader>kl"] = {
+    ["<leader>kw"] = {
       function()
         require("close_buffers").wipe { type = "all", force = true }
       end,
@@ -63,14 +74,14 @@ M.general = {
       "<cmd> Telescope workspaces <CR>",
       "find workspaces",
     },
+  },
+  v = {
     ["<A-t>"] = {
       function()
         require("custom.utils").test()
       end,
       "test",
     },
-  },
-  v = {
     -- save
     ["<A-p>"] = { "yP<esc>gv", "copy lines down", opts = { silent = true } },
     ["<A-S-P>"] = { "ygv<esc>pgv", "copy lines up", opts = { silent = true } },

@@ -1,6 +1,7 @@
 https://github.com/wsdjeg/Learn-Vim_zh_cn
 Vim cheatsheet: https://quickref.me/vim.html
 https://alpha2phi.medium.com/modern-neovim-user-interface-and-pde-1605567b746e
+https://neovim.io/doc/user/api.html
 
 ## 命令
 
@@ -9,6 +10,31 @@ local ts_utils = require("nvim-treesitter.ts_utils")
 ts-utils.get_node_at_cursor()
 vim.api.nvim_list_wins()
 vim.api.nvim_tabpage_list_wins(0)
+
+
+vim.api.nvim_win_get_cursor(0)
+vim.api.nvim_buf_set_text(0, row - 1, col, row - 1, col, { uuid })
+
+lua=vim.fn.line('.')
+lua=vim.fn.col('.')
+
+lua=vim.fn.col('v')
+
+lua=vim.fn.line('v')
+
+{
+    start= {vim.fn.line('v'), vim.fn.col('v'), }
+ }
+
+
+
+lua=print(vim.inspect(
+    vim.fn.visualmode(), -- last visual mode
+    vim.fn.getpos("'<'"), -- last start
+    vim.fn.getpos("'>'"), -- last end
+    vim.fn.line('v'), -- current visual line
+    vim.fn.col('v') -- current visual column
+)) end, })
 ```
 
 - 全局搜索替换

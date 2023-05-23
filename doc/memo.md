@@ -21,6 +21,8 @@ nvim-tree: `:h nvim-tree-mappings-default`
 {
   autocommands = <function 1>,
   buffers = <function 2>,
+  autocommands = <function 1>,
+
   builtin = <function 3>,
   colorscheme = <function 4>,
   command_history = <function 5>,
