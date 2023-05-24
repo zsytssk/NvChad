@@ -62,13 +62,13 @@ M.get_select_text = function(buffer, range)
 end
 
 -- 将坐标位置转化为 整个文本的index
-M.pos_to_index = function(buffer, pos)
+M.pos_to_index = function(buffer, pos, eol)
   local cur_line = pos[1]
   local cur_col = pos[2]
   local lines = vim.api.nvim_buf_get_lines(buffer, 0, cur_line, false)
   local index = 0
   for i, v in pairs(lines) do
-    if i < cur_line then
+    if i < cur_line or eol then
       index = index + string.len(v)
     else
       index = index + cur_col
