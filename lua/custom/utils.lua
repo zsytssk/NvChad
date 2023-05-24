@@ -45,16 +45,21 @@ M.test = function()
   local new_start_index = end_index + 1
   local new_end_index = new_start_index + end_index - start_index
   if mode == "V" then
-    table.insert(text, 1, "")
+    table.insert(text, "")
+    vim.api.nvim_win_set_cursor(0, { selection[2][1] + 1, 1 })
   end
-  print(vim.inspect(text))
-  vim.api.nvim_put(text, "c", true, true)
+  print(vim.inspect { new_start_index, new_end_index, text })
+  vim.api.nvim_put(text, "c", true, false)
   local new_start_pos = tool_sel.index_to_pos(buffer, new_start_index)
   local new_end_pos = tool_sel.index_to_pos(buffer, new_end_index)
   tool_sel.set_selection(new_start_pos, new_end_pos)
-  print(vim.inspect { text, selection, new_end_pos })
-  print(vim.inspect(selection))
-  print(vim.inspect { start_pos, end_pos })
+
+  if mode == "V" then
+    vim.api.nvim_input "V"
+  end
+  -- print(vim.inspect { text, selection, new_end_pos })
+  -- print(vim.inspect(selection))
+  -- print(vim.inspect { start_pos,end_pos })
 end
 
 return M

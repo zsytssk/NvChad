@@ -1,7 +1,14 @@
-打字练习: https://type-fu.com/app
+hello world
+hello world
+
 打字练习: https://type-fu.com/app
 
 conflicttest-markers.vim
+
+## 2023-05-24 10:07:00
+
+- @ques insertText ?
+- @ques change word snake
 
 ## 2023-05-23 17:55:15
 
@@ -16,7 +23,7 @@ conflicttest-markers.vim
   - 只保存真正改变的文件
 
 - @ques changePos 能不能直接传数字进去
-  - curpos() + 5 这种
+  - curpos() + 5 种
 
 ```
 https://www.reddit.com/r/neovim/comments/s0i40v/how_do_i_detect_and_close_if_a_buffer_has_not_had/
