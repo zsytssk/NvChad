@@ -5,12 +5,17 @@ local M = {}
 M.get_lines_len = function(lines)
   local len = 0
   for _, v in pairs(lines) do
-    len = len + string.len(v)
+    len = len + M.len(v)
   end
   return len
 end
 
 M.len = function(str)
+  -- print(vim.inspect { "len", str })
+  -- if str == "" or str == nil then
+  if str == "" then
+    return 0
+  end
   return utf8.len(str)
 end
 

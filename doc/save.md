@@ -67,9 +67,11 @@ nvim-pack/nvim-spectre
 
 vertical move line
 https://www.youtube.com/watch?v=X5IAdaN6IwM
+zen mode
 
 ## 可能用的插件
 
+Auto-session and session-lens can
 conflict-markers.vi
 https://www.youtube.com/watch?v=9IcXJvoPHCY&list=PLhoH5vyxr6QqPtKMp03pcJd_Vg8FZ0rtg&index=13
 https://github.com/johmsalas/text-case.nvim

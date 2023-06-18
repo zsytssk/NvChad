@@ -41,10 +41,10 @@ local plugins = {
   },
   --- override default plugins setting - end
   { "uga-rosa/utf8.nvim" },
-  { "ThePrimeagen/harpoon", event = "VeryLazy" },
-  { "ThePrimeagen/vim-be-good", cmd = { "VimBeGood" } },
+  { "ThePrimeagen/harpoon",           event = "VeryLazy" },
+  { "ThePrimeagen/vim-be-good",       cmd = { "VimBeGood" } },
   { "christoomey/vim-tmux-navigator", lazy = false },
-  { "mbbill/undotree", cmd = { "UndotreeToggle" } },
+  { "mbbill/undotree",                cmd = { "UndotreeToggle" } },
   -- 在顶部显示当前的scope
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -83,18 +83,7 @@ local plugins = {
       require("telescope").load_extension "workspaces"
     end,
   },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    config = function()
-      require "custom.plugins_config.notice"
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-    },
-  },
-  { "kevinhwang91/nvim-bqf", event = "VeryLazy" },
+  { "kevinhwang91/nvim-bqf",     event = "VeryLazy" },
   {
     "andymass/vim-matchup",
     event = "VeryLazy",

@@ -62,4 +62,15 @@ vim.api.nvim_set_current_win(cur_win)
 
 
 win_screenpos(window number)
+
+
+打字练习: https://type-fu.com/app
+
+-- insert lines
+local new_start_pos = tool_sel.index_to_pos(buffer, new_start_index)
+  local new_end_pos = tool_sel.index_to_pos(buffer, new_end_index)
+  vim.api.nvim_buf_set_lines(buffer, new_start_pos[1] - 1, new_start_pos[1], false, text)
+  print(vim.inspect { new_start_pos })
+  tool_sel.set_selection(new_start_pos, new_end_pos)
+
 ```

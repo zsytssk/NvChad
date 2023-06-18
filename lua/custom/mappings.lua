@@ -50,12 +50,11 @@ M.general = {
     },
     ["<leader>S"] = { "<cmd>lua require('spectre').open()<CR>", "global find replace" },
     ["<leader>gg"] = { "<cmd> VimBeGood <CR>", "open vim_be_good" },
+    ["<leader>gm"] = { "<cmd> messages <CR>", "open vim_be_good" },
     ["<leader>tc"] = { "<cmd> TextCaseOpenTelescope <CR>", "textcase open" },
     ["<leader>na"] = { "<cmd> Nvdash <CR>", "toggle nvdash" },
     ["<leader>u"] = { "<cmd> UndotreeToggle <CR>", "undo tree" },
-    ["<leader>nu"] = { "<cmd> NvChadUpdate <CR>", "nvdash update" },
     ["<leader>m"] = { "<cmd> TSJToggle <CR>", "treesj toggle" },
-    ["<leader>ol"] = { "<cmd> AerialToggle <CR>", "Toggle outline" },
     ["<leader>og"] = { "<cmd> OrganizeImports <CR>", "organize imports" },
     ["<leader>kw"] = {
       function()

@@ -1,19 +1,53 @@
-hello world
-hello world
+---
+---
 
-打字练习: https://type-fu.com/app
+## 2023-05-28 08:21:38
 
-conflicttest-markers.vim
+谭木匠 梳子
+买餐巾纸
 
-## 2023-05-24 10:07:00
+## 2023-05-27 10:27:29
 
-- @ques insertText ?
-- @ques change word snake
+- @ques 将多行文本转换为一个连续的字符串
+
+  - 换行符和一般的字符如何转化
+  - 如何算作一个字符 <br>
+
+- @note message 挡住了文本太恶心了
+- @ques 如何更新 nvchad 又能自己去配置
+- @todo css 提示
+- @ques 末尾的 cursor 有些问题
+
+- @ques 末尾的 cursor 有些问题有些问题
+
+  - 行尾部就相当于一个换行字符？
+  - 行尾只是标识 而不能算作区间
+  - ***
+  - 向上 向下处在行尾部 怎么处理
+
+- @todo
+  - funcion inside
+    - nvim-treesitter/nvim-treesitter-textobjects
+  - snake word
+    - targets.vim
+
+### end
+
+- 用自己写的功能代替那些插件
+- @ques 如何显示修改
+- @ques insertText ?如何显示修改如何显示修改
+- @ques set_lines 可如何显示修改如何显示修改能会更快
+- @todo toggle messa 如何显示修改如何显示修改 ge
+
+- @ques 感觉自己写的 脚本太复杂了 简直就是太复杂了
+  - 也许可以自己封装一些方法让他变得简单
 
 ## 2023-05-23 17:55:15
 
-2023-05-23 17:55:15
+如何显示修改如何显示修改
+
 鼠标在行尾部怎么处理
+get_range_text 能不能换成原生的
 
 ## 2023-04-27 11:59:15
 
@@ -31,8 +65,6 @@ https://vi.stackexchange.com/questions/25746/vimscript-how-to-check-if-a-buffer-
 :h getbufinfo
 vim.api.nvim_echo
 ```
-
-我是你爸爸
 
 - @ques 自增快捷键
 
