@@ -73,6 +73,10 @@ M.general = {
       "<cmd> Telescope workspaces <CR>",
       "find workspaces",
     },
+    ["<A-t>"] = {
+      "<cmd>lua require('custom.utils').toggle_qfw()<CR>",
+      "toggle_quick_menu",
+    },
   },
   v = {
     ["<A-t>"] = {

@@ -33,6 +33,14 @@ M.insert_cur_time = function()
   vim.api.nvim_put({ text }, "c", mode == "n", true)
 end
 
+M.toggle_qfw = function()
+  if vim.fn.getqflist({ winid = 0 }).winid ~= 0 then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end
+
 M.dulplicate_selection = function()
   local direction = "next"
   local mode = vim.fn.mode()
@@ -133,10 +141,11 @@ M.dulplicate_selection1 = function()
 end
 
 M.test = function()
-  local tool_sel = require "custom.tools.selection"
-  local selection = tool_sel.get_select_region()
-  local buffer = vim.api.nvim_get_current_buf()
-  local text = tool_sel.get_range_text(buffer, selection)
+  -- local tool_sel = require "custom.tools.selection"
+  -- local selection = tool_sel.get_select_region()
+  -- local buffer = vim.api.nvim_get_current_buf()
+  M.toggle_qfw()
+  -- local text = tool_sel.get_range_text(buffer, selection)
   -- M.dulplicate_selectio1()
 end
 

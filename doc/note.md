@@ -6,6 +6,8 @@
 谭木匠 梳子
 买餐巾纸
 
+neovim lua detect quickfix isOPen
+
 ## 2023-05-27 10:27:29
 
 - @ques 将多行文本转换为一个连续的字符串

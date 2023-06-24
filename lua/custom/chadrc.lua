@@ -2,7 +2,7 @@
 
 local M = {}
 M.ui = {
-  theme = "ashes",
+  theme = "ayu_dark",
   transparency = true,
   nvdash = { load_on_startup = true },
   hl_override = require "custom.highlights",

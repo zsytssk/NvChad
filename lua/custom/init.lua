@@ -2,7 +2,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.list = true
 vim.opt.listchars = { space = "⋅", tab = "--" }
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.spelllang = "en,cjk"
 vim.opt.spell = true
 vim.opt.swapfile = false
